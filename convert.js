@@ -209,10 +209,10 @@ const baseRules = [
     // 核心分类
     `RULE-SET,Crypto,Crypto`,
     "GEOSITE,CATEGORY-AI-!CN,AI",
-    // 国内服务直连
-    `RULE-SET,StaticResources,DIRECT`,
-    `RULE-SET,CDNResources,DIRECT`,
-    `RULE-SET,AdditionalCDNResources,DIRECT`,
+    // 静态资源走代理选择（部分 CDN 在国内无法直连）
+    `RULE-SET,StaticResources,${PROXY_GROUPS.SELECT}`,
+    `RULE-SET,CDNResources,${PROXY_GROUPS.SELECT}`,
+    `RULE-SET,AdditionalCDNResources,${PROXY_GROUPS.SELECT}`,
     `RULE-SET,SteamFix,DIRECT`,
     `RULE-SET,GoogleFCM,DIRECT`,
     `GEOSITE,GOOGLE-PLAY@CN,DIRECT`,
