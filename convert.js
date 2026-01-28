@@ -9,7 +9,7 @@ https://github.com/powerfullz/override-rules
 - full: 输出完整配置（适合纯内核启动，默认 false）
 - keepalive: 启用 tcp-keep-alive（默认 false）
 - fakeip: DNS 使用 FakeIP 模式（默认 false，false 为 RedirHost）
-- quic: 允许 QUIC 流量（UDP 443，默认 false）
+- quic: 允许 QUIC 流量（UDP 443，默认 true）
 - threshold: 国家节点数量小于该值时不显示分组 (默认 0)
 */
 
@@ -55,6 +55,9 @@ function buildFeatureFlags(args) {
         acc[targetKey] = parseBool(args[sourceKey]) || false;
         return acc;
     }, {});
+
+    // quic 默认为 true（允许 QUIC 流量）
+    flags.quicEnabled = args.quic !== undefined ? parseBool(args.quic) : true;
 
     // 单独处理数字参数
     flags.countryThreshold = parseNumber(args.threshold, 0);
@@ -244,7 +247,8 @@ const baseRules = [
 function buildRules({ quicEnabled }) {
     const ruleList = [...baseRules];
     if (!quicEnabled) {
-        // 屏蔽 QUIC 流量，避免网络环境 UDP 速度不佳时影响体验
+        // 屏蔽 QUIC 流量（UDP 443），适用于网络环境 UDP 速度不佳的情况
+        // 默认允许 QUIC，传入 quic=false 可禁用
         ruleList.unshift("AND,((DST-PORT,443),(NETWORK,UDP)),REJECT");
     }
     return ruleList;
@@ -601,6 +605,7 @@ function main(config) {
     });
 
     Object.assign(resultConfig, {
+        "ipv6": ipv6Enabled,
         "proxy-groups": proxyGroups,
         "rule-providers": ruleProviders,
         "rules": finalRules,
