@@ -120,14 +120,6 @@ function buildBaseLists({ landing, lowCost, countryGroupNames }) {
 }
 
 const ruleProviders = {
-    "ADBlock": {
-        "type": "http",
-        "behavior": "domain",
-        "format": "mrs",
-        "interval": 86400,
-        "url": "https://adrules.top/adrules-mihomo.mrs",
-        "path": "./ruleset/ADBlock.mrs"
-    },
     "SogouInput": {
         "type": "http",
         "behavior": "classical",
@@ -212,7 +204,6 @@ const ruleProviders = {
 
 const baseRules = [
     // 广告拦截
-    `RULE-SET,ADBlock,REJECT`,
     `RULE-SET,AdditionalFilter,REJECT`,
     `RULE-SET,SogouInput,REJECT`,
     // 核心分类
