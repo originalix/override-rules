@@ -543,8 +543,7 @@ function buildProxyGroups({
         (lowCost) ? {
             "name": PROXY_GROUPS.LOW_COST,
             "icon": "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Lab.png",
-            "type": "url-test",
-            "url": "https://cp.cloudflare.com/generate_204",
+            "type": "select",
             "include-all": true,
             "filter": "(?i)0\.[0-5]|低倍率|省流|大流量|实验性"
         } : null,
