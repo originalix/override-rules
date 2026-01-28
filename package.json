@@ -6,7 +6,8 @@
   "license": "MIT",
   "type": "commonjs",
   "scripts": {
-    "generate": "node yaml_generator/generator.js"
+    "generate": "node yaml_generator/generator.js",
+    "minify": "npx terser convert.js -o convert.min.js -c -m --comments '/^!/'"
   },
   "dependencies": {
     "yaml": "^2.5.0"

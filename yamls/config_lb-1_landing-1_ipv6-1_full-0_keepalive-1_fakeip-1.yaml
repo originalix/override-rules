@@ -3,7 +3,6 @@ proxy-groups:
     icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
     type: select
     proxies:
-      - 故障转移
       - 落地节点
       - 香港节点
       - 台湾节点
@@ -36,25 +35,8 @@ proxy-groups:
     type: select
     include-all: true
     filter: (?i)家宽|家庭|家庭宽带|商宽|商业宽带|星链|Starlink|落地
-  - name: 故障转移
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bypass.png
-    type: fallback
-    url: https://cp.cloudflare.com/generate_204
-    proxies:
-      - 落地节点
-      - 香港节点
-      - 台湾节点
-      - 新加坡节点
-      - 日本节点
-      - 美国节点
-      - 低倍率节点
-      - 手动选择
-      - DIRECT
-    interval: 180
-    tolerance: 20
-    lazy: false
-  - name: 静态资源
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png
+  - name: AI
+    icon: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/icons/chatgpt.png
     type: select
     proxies: &a1
       - 选择代理
@@ -65,100 +47,11 @@ proxy-groups:
       - 美国节点
       - 低倍率节点
       - 手动选择
-      - 直连
-  - name: AI
-    icon: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/icons/chatgpt.png
-    type: select
-    proxies: *a1
+      - DIRECT
   - name: Crypto
     icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cryptocurrency_3.png
     type: select
     proxies: *a1
-  - name: Google
-    icon: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/icons/Google.png
-    type: select
-    proxies: *a1
-  - name: Microsoft
-    icon: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/icons/Microsoft_Copilot.png
-    type: select
-    proxies: *a1
-  - name: YouTube
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
-    type: select
-    proxies: *a1
-  - name: Bilibili
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png
-    type: select
-    proxies:
-      - 直连
-      - 台湾节点
-      - 香港节点
-  - name: Bahamut
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bahamut.png
-    type: select
-    proxies:
-      - 台湾节点
-      - 选择代理
-      - 手动选择
-      - 直连
-  - name: Netflix
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png
-    type: select
-    proxies: *a1
-  - name: TikTok
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png
-    type: select
-    proxies: *a1
-  - name: Spotify
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png
-    type: select
-    proxies: *a1
-  - name: E-Hentai
-    icon: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/icons/Ehentai.png
-    type: select
-    proxies: *a1
-  - name: Telegram
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
-    type: select
-    proxies: *a1
-  - name: Truth Social
-    icon: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/icons/TruthSocial.png
-    type: select
-    proxies:
-      - 美国节点
-      - 选择代理
-      - 手动选择
-  - name: OneDrive
-    icon: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/icons/Onedrive.png
-    type: select
-    proxies: *a1
-  - name: PikPak
-    icon: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/icons/PikPak.png
-    type: select
-    proxies: *a1
-  - name: SSH(22端口)
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Server.png
-    type: select
-    proxies: *a1
-  - name: 搜狗输入法
-    icon: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/icons/Sougou.png
-    type: select
-    proxies:
-      - 直连
-      - REJECT
-  - name: 直连
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png
-    type: select
-    proxies:
-      - DIRECT
-      - 选择代理
-  - name: 广告拦截
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AdBlack.png
-    type: select
-    proxies:
-      - REJECT
-      - REJECT-DROP
-      - 直连
   - name: 低倍率节点
     icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Lab.png
     type: url-test
@@ -204,27 +97,8 @@ proxy-groups:
       - 手动选择
       - 前置代理
       - 落地节点
-      - 故障转移
-      - 静态资源
       - AI
       - Crypto
-      - Google
-      - Microsoft
-      - YouTube
-      - Bilibili
-      - Bahamut
-      - Netflix
-      - TikTok
-      - Spotify
-      - E-Hentai
-      - Telegram
-      - Truth Social
-      - OneDrive
-      - PikPak
-      - SSH(22端口)
-      - 搜狗输入法
-      - 直连
-      - 广告拦截
       - 低倍率节点
       - 香港节点
       - 台湾节点
@@ -311,40 +185,37 @@ rule-providers:
     path: ./ruleset/Crypto.list
 rules:
   - AND,((DST-PORT,443),(NETWORK,UDP)),REJECT
-  - RULE-SET,ADBlock,广告拦截
-  - RULE-SET,AdditionalFilter,广告拦截
-  - RULE-SET,SogouInput,搜狗输入法
-  - DOMAIN-SUFFIX,truthsocial.com,Truth Social
-  - RULE-SET,StaticResources,静态资源
-  - RULE-SET,CDNResources,静态资源
-  - RULE-SET,AdditionalCDNResources,静态资源
+  - RULE-SET,ADBlock,REJECT
+  - RULE-SET,AdditionalFilter,REJECT
+  - RULE-SET,SogouInput,REJECT
   - RULE-SET,Crypto,Crypto
-  - RULE-SET,EHentai,E-Hentai
-  - RULE-SET,TikTok,TikTok
-  - RULE-SET,SteamFix,直连
-  - RULE-SET,GoogleFCM,直连
-  - DOMAIN,services.googleapis.cn,选择代理
   - GEOSITE,CATEGORY-AI-!CN,AI
-  - GEOSITE,GOOGLE-PLAY@CN,直连
-  - GEOSITE,MICROSOFT@CN,直连
-  - GEOSITE,ONEDRIVE,OneDrive
-  - GEOSITE,MICROSOFT,Microsoft
-  - GEOSITE,TELEGRAM,Telegram
-  - GEOSITE,YOUTUBE,YouTube
-  - GEOSITE,GOOGLE,Google
-  - GEOSITE,NETFLIX,Netflix
-  - GEOSITE,SPOTIFY,Spotify
-  - GEOSITE,BAHAMUT,Bahamut
-  - GEOSITE,BILIBILI,Bilibili
-  - GEOSITE,PIKPAK,PikPak
+  - RULE-SET,StaticResources,DIRECT
+  - RULE-SET,CDNResources,DIRECT
+  - RULE-SET,AdditionalCDNResources,DIRECT
+  - RULE-SET,SteamFix,DIRECT
+  - RULE-SET,GoogleFCM,DIRECT
+  - GEOSITE,GOOGLE-PLAY@CN,DIRECT
+  - GEOSITE,MICROSOFT@CN,DIRECT
+  - GEOSITE,BILIBILI,DIRECT
+  - DOMAIN,services.googleapis.cn,选择代理
+  - DOMAIN-SUFFIX,truthsocial.com,选择代理
+  - RULE-SET,EHentai,选择代理
+  - RULE-SET,TikTok,选择代理
+  - GEOSITE,ONEDRIVE,选择代理
+  - GEOSITE,MICROSOFT,选择代理
+  - GEOSITE,TELEGRAM,选择代理
+  - GEOSITE,YOUTUBE,选择代理
+  - GEOSITE,GOOGLE,选择代理
+  - GEOSITE,NETFLIX,选择代理
+  - GEOSITE,SPOTIFY,选择代理
+  - GEOSITE,BAHAMUT,选择代理
+  - GEOSITE,PIKPAK,选择代理
   - GEOSITE,GFW,选择代理
-  - GEOSITE,CN,直连
-  - GEOSITE,PRIVATE,直连
-  - GEOIP,NETFLIX,Netflix,no-resolve
-  - GEOIP,TELEGRAM,Telegram,no-resolve
-  - GEOIP,CN,直连
-  - GEOIP,PRIVATE,直连
-  - DST-PORT,22,SSH(22端口)
+  - GEOSITE,CN,DIRECT
+  - GEOSITE,PRIVATE,DIRECT
+  - GEOIP,CN,DIRECT
+  - GEOIP,PRIVATE,DIRECT
   - MATCH,选择代理
 sniffer:
   sniff:
