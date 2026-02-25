@@ -1,0 +1,193 @@
+# > AI Services
+# >> Source: MetaCubeX geosite CATEGORY-AI-!CN
+
+# >> Google AI
+host,ai.google.dev,AI
+host,alkalicore-pa.clients6.google.com,AI
+host,alkalimakersuite-pa.clients6.google.com,AI
+host,webchannel-alkalimakersuite-pa.clients6.google.com,AI
+host,cloudaicompanion.googleapis.com,AI
+host,cloudcode-pa.googleapis.com,AI
+host,daily-cloudcode-pa.googleapis.com,AI
+host,notebooklm-pa.googleapis.com,AI
+host,notebooklm.googleapis.com,AI
+host,antigravity-pa.googleapis.com,AI
+host,antigravity.googleapis.com,AI
+host-suffix,generativeai.google,AI
+host-suffix,gemini.google,AI
+host-suffix,gemini.google.com,AI
+host-suffix,aistudio.google.com,AI
+host-suffix,makersuite.google.com,AI
+host-suffix,notebooklm.google,AI
+host-suffix,notebooklm.google.com,AI
+host-suffix,deepmind.google,AI
+host-suffix,deepmind.com,AI
+host-suffix,labs.google,AI
+host-suffix,labs.google.com,AI
+host-suffix,jules.google,AI
+host-suffix,jules.google.com,AI
+host-suffix,opal.google,AI
+host-suffix,opal.google.com,AI
+host-suffix,bard.google.com,AI
+host-suffix,antigravity.google,AI
+host-suffix,antigravity-unleash.goog,AI
+host-suffix,aisandbox-pa.googleapis.com,AI
+host-suffix,geller-pa.googleapis.com,AI
+host-suffix,generativelanguage.googleapis.com,AI
+host-suffix,proactivebackend-pa.googleapis.com,AI
+host-suffix,robinfrontend-pa.googleapis.com,AI
+host-suffix,aida.googleapis.com,AI
+
+# >> Microsoft Copilot
+host-suffix,copilot.microsoft.com,AI
+
+# >> OpenAI / ChatGPT
+host,openaiapi-site.azureedge.net,AI
+host,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net,AI
+host,openaicom.imgix.net,AI
+host,openaicomproductionae4b.blob.core.windows.net,AI
+host,production-openaicom-storage.azureedge.net,AI
+host-suffix,openai.com,AI
+host-suffix,chat.com,AI
+host-suffix,chatgpt.com,AI
+host-suffix,sora.com,AI
+host-suffix,crixet.com,AI
+host-suffix,oaistatic.com,AI
+host-suffix,oaiusercontent.com,AI
+host-suffix,openai.com.cdn.cloudflare.net,AI
+host-suffix,chatgpt.livekit.cloud,AI
+host-suffix,turn.livekit.cloud,AI
+host-suffix,host.livekit.cloud,AI
+
+# >> Anthropic / Claude
+host,servd-anthropic-website.b-cdn.net,AI
+host-suffix,anthropic.com,AI
+host-suffix,claude.ai,AI
+host-suffix,claude.com,AI
+host-suffix,claudeusercontent.com,AI
+host-suffix,claudemcpclient.com,AI
+
+# >> xAI / Grok
+host-suffix,x.ai,AI
+host-suffix,grok.com,AI
+host-suffix,grok.x.com,AI
+
+# >> Perplexity
+host,pplx-res.cloudinary.com,AI
+host-suffix,perplexity.ai,AI
+host-suffix,perplexity.com,AI
+host-suffix,pplx.ai,AI
+
+# >> Mistral
+host-suffix,mistral.ai,AI
+
+# >> Cursor
+host-suffix,cursor.com,AI
+host-suffix,cursor.sh,AI
+host-suffix,cursorapi.com,AI
+host-suffix,cursor-cdn.com,AI
+
+# >> Windsurf / Codeium
+host-suffix,windsurf.com,AI
+host-suffix,windsurf.build,AI
+host-suffix,codeium.com,AI
+host-suffix,codeiumdata.com,AI
+
+# >> Cerebras
+host-suffix,cerebras.ai,AI
+
+# >> Groq
+host-suffix,groq.com,AI
+
+# >> ElevenLabs
+host-suffix,elevenlabs.io,AI
+host-suffix,elevenlabs.com,AI
+
+# >> Hugging Face
+host-suffix,huggingface.co,AI
+host-suffix,hf.co,AI
+host-suffix,hf.space,AI
+
+# >> GitHub Copilot
+host-suffix,githubcopilot.com,AI
+
+# >> CodeRabbit
+host-suffix,coderabbit.ai,AI
+host-suffix,coderabbit.gallery.vsassets.io,AI
+
+# >> Poe
+host-suffix,poe.com,AI
+host-suffix,poecdn.net,AI
+
+# >> Meta AI
+host-suffix,meta.ai,AI
+
+# >> Devin
+host-suffix,devin.ai,AI
+host-suffix,diabrowser.com,AI
+
+# >> Manus
+host-suffix,manus.im,AI
+host-suffix,manuscdn.com,AI
+
+# >> Dify
+host-suffix,dify.ai,AI
+
+# >> DuckDuckGo AI
+host-suffix,duck.ai,AI
+
+# >> Cohere
+host-suffix,cohere.com,AI
+host-suffix,cohere.ai,AI
+
+# >> Jasper
+host-suffix,jasper.ai,AI
+
+# >> OpenArt
+host-suffix,openart.ai,AI
+
+# >> OpenRouter
+host-suffix,openrouter.ai,AI
+
+# >> ClipDrop
+host-suffix,clipdrop.co,AI
+
+# >> Kiro (AWS)
+host-suffix,kiro.dev,AI
+
+# >> ByteDance Overseas AI
+host-suffix,coze.com,AI
+host-suffix,marscode.com,AI
+host-suffix,trae.ai,AI
+host-suffix,cici.com,AI
+host-suffix,ciciai.com,AI
+host-suffix,ciciaicdn.com,AI
+host-suffix,dola.com,AI
+
+# >> ComfyUI
+host-suffix,comfy.org,AI
+host-suffix,comfyci.org,AI
+host-suffix,comfyregistry.org,AI
+
+# >> YouMind
+host-suffix,youmind.ai,AI
+host-suffix,youmind.com,AI
+host-suffix,youmind.site,AI
+
+# >> Chutes
+host-suffix,chutes.ai,AI
+
+# >> AI Studio
+host-suffix,ai.studio,AI
+
+# >> LivePerson
+host-suffix,liveperson.net,AI
+host-suffix,lpsnmedia.net,AI
+
+# >> Cloudflare AI Gateway
+host-suffix,gateway.ai.cloudflare.com,AI
+
+# >> Misc
+host-suffix,oystermercury.top,AI
+host,o33249.ingest.sentry.io,AI
+host,browser-intake-datadoghq.com,AI
