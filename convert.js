@@ -152,7 +152,7 @@ const ruleProviders = {
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/TikTok.list",
+        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/TikTok.list",
         "path": "./ruleset/TikTok.list"
     },
     "EHentai": {
@@ -160,7 +160,7 @@ const ruleProviders = {
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/EHentai.list",
+        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/EHentai.list",
         "path": "./ruleset/EHentai.list"
     },
     "SteamFix": {
@@ -168,7 +168,7 @@ const ruleProviders = {
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/SteamFix.list",
+        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/SteamFix.list",
         "path": "./ruleset/SteamFix.list"
     },
     "GoogleFCM": {
@@ -176,7 +176,7 @@ const ruleProviders = {
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/FirebaseCloudMessaging.list",
+        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/FirebaseCloudMessaging.list",
         "path": "./ruleset/FirebaseCloudMessaging.list"
     },
     "AdditionalFilter": {
@@ -184,7 +184,7 @@ const ruleProviders = {
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/AdditionalFilter.list",
+        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/AdditionalFilter.list",
         "path": "./ruleset/AdditionalFilter.list"
     },
     "AdditionalCDNResources": {
@@ -192,7 +192,7 @@ const ruleProviders = {
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/AdditionalCDNResources.list",
+        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/AdditionalCDNResources.list",
         "path": "./ruleset/AdditionalCDNResources.list"
     },
     "Crypto": {
@@ -200,7 +200,7 @@ const ruleProviders = {
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/Crypto.list",
+        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/Crypto.list",
         "path": "./ruleset/Crypto.list"
     },
     "GitHub": {
@@ -208,7 +208,7 @@ const ruleProviders = {
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/GitHub.list",
+        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/GitHub.list",
         "path": "./ruleset/GitHub.list"
     }
 }
@@ -534,7 +534,7 @@ function buildProxyGroups({
         } : null,
         {
             "name": "AI",
-            "icon": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/icons/chatgpt.png",
+            "icon": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/icons/chatgpt.png",
             "type": "select",
             "proxies": defaultProxies
         },
