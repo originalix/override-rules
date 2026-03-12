@@ -27,3 +27,7 @@ DOMAIN,copilot-proxy.githubusercontent.com
 # GitHub Education
 DOMAIN-SUFFIX,education.github.com
 DOMAIN-SUFFIX,classroom.github.com
+
+# GitHub Actions Artifacts (Azure Blob Storage)
+# 302 重定向目标: productionresultssa*.blob.core.windows.net
+DOMAIN-KEYWORD,productionresultssa
