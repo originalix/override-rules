@@ -1,0 +1,29 @@
+# GitHub Core
+DOMAIN-SUFFIX,github.com
+DOMAIN-SUFFIX,github.io
+DOMAIN-SUFFIX,github.dev
+DOMAIN-SUFFIX,github.blog
+
+# GitHub Assets & CDN
+DOMAIN-SUFFIX,githubassets.com
+DOMAIN-SUFFIX,githubusercontent.com
+
+# GitHub Container Registry
+DOMAIN-SUFFIX,ghcr.io
+
+# GitHub Packages
+DOMAIN-SUFFIX,npm.pkg.github.com
+DOMAIN-SUFFIX,maven.pkg.github.com
+DOMAIN-SUFFIX,nuget.pkg.github.com
+DOMAIN-SUFFIX,rubygems.pkg.github.com
+
+# GitHub Status
+DOMAIN-SUFFIX,githubstatus.com
+
+# GitHub Copilot
+DOMAIN-SUFFIX,copilot.github.com
+DOMAIN,copilot-proxy.githubusercontent.com
+
+# GitHub Education
+DOMAIN-SUFFIX,education.github.com
+DOMAIN-SUFFIX,classroom.github.com

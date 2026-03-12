@@ -202,6 +202,14 @@ const ruleProviders = {
         "interval": 86400,
         "url": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/Crypto.list",
         "path": "./ruleset/Crypto.list"
+    },
+    "GitHub": {
+        "type": "http",
+        "behavior": "classical",
+        "format": "text",
+        "interval": 86400,
+        "url": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/GitHub.list",
+        "path": "./ruleset/GitHub.list"
     }
 }
 
@@ -211,6 +219,7 @@ const baseRules = [
     `RULE-SET,SogouInput,REJECT`,
     // 核心分类
     `RULE-SET,Crypto,Crypto`,
+    `RULE-SET,GitHub,GitHub`,
     "GEOSITE,CATEGORY-AI-!CN,AI",
     // 静态资源走代理选择（部分 CDN 在国内无法直连）
     `RULE-SET,StaticResources,${PROXY_GROUPS.SELECT}`,
@@ -532,6 +541,12 @@ function buildProxyGroups({
         {
             "name": "Crypto",
             "icon": "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cryptocurrency_3.png",
+            "type": "select",
+            "proxies": defaultProxies
+        },
+        {
+            "name": "GitHub",
+            "icon": "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png",
             "type": "select",
             "proxies": defaultProxies
         },
