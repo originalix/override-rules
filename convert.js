@@ -216,7 +216,7 @@ const ruleProviders = {
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/Discord.list",
+        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/Discord.list",
         "path": "./ruleset/Discord.list"
     }
 }

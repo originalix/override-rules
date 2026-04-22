@@ -30,6 +30,11 @@ assert.equal(
   './ruleset/Discord.list',
   'expected Discord rule provider path to point to ruleset/Discord.list'
 );
+assert.equal(
+  config['rule-providers'].Discord.url,
+  'https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/Discord.list',
+  'expected Discord rule provider URL to point to the originalix fork'
+);
 assert.ok(
   config.rules.includes('RULE-SET,Discord,Discord'),
   'expected Discord ruleset to be routed to the Discord proxy group'
