@@ -32,7 +32,7 @@ proxy-groups:
     include-all: true
     type: select
   - name: AI
-    icon: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/icons/chatgpt.png
+    icon: https://gcore.jsdelivr.net/gh/originalix/override-rules@master/icons/chatgpt.png
     type: select
     proxies: &a1
       - 选择代理
@@ -48,10 +48,17 @@ proxy-groups:
     icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cryptocurrency_3.png
     type: select
     proxies: *a1
+  - name: GitHub
+    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png
+    type: select
+    proxies: *a1
+  - name: Discord
+    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Discord.png
+    type: select
+    proxies: *a1
   - name: 低倍率节点
     icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Lab.png
-    type: url-test
-    url: https://cp.cloudflare.com/generate_204
+    type: select
     include-all: true
     filter: (?i)0.[0-5]|低倍率|省流|大流量|实验性
   - name: 香港节点
@@ -93,6 +100,8 @@ proxy-groups:
       - 手动选择
       - AI
       - Crypto
+      - GitHub
+      - Discord
       - 低倍率节点
       - 香港节点
       - 台湾节点
@@ -100,13 +109,6 @@ proxy-groups:
       - 日本节点
       - 美国节点
 rule-providers:
-  ADBlock:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 86400
-    url: https://adrules.top/adrules-mihomo.mrs
-    path: ./ruleset/ADBlock.mrs
   SogouInput:
     type: http
     behavior: classical
@@ -133,60 +135,74 @@ rule-providers:
     behavior: classical
     format: text
     interval: 86400
-    url: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/TikTok.list
+    url: https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/TikTok.list
     path: ./ruleset/TikTok.list
   EHentai:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/EHentai.list
+    url: https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/EHentai.list
     path: ./ruleset/EHentai.list
   SteamFix:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/SteamFix.list
+    url: https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/SteamFix.list
     path: ./ruleset/SteamFix.list
   GoogleFCM:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/FirebaseCloudMessaging.list
+    url: https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/FirebaseCloudMessaging.list
     path: ./ruleset/FirebaseCloudMessaging.list
   AdditionalFilter:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/AdditionalFilter.list
+    url: https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/AdditionalFilter.list
     path: ./ruleset/AdditionalFilter.list
   AdditionalCDNResources:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/AdditionalCDNResources.list
+    url: https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/AdditionalCDNResources.list
     path: ./ruleset/AdditionalCDNResources.list
   Crypto:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/Crypto.list
+    url: https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/Crypto.list
     path: ./ruleset/Crypto.list
+  GitHub:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/GitHub.list
+    path: ./ruleset/GitHub.list
+  Discord:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/Discord.list
+    path: ./ruleset/Discord.list
 rules:
-  - AND,((DST-PORT,443),(NETWORK,UDP)),REJECT
-  - RULE-SET,ADBlock,REJECT
   - RULE-SET,AdditionalFilter,REJECT
   - RULE-SET,SogouInput,REJECT
   - RULE-SET,Crypto,Crypto
+  - RULE-SET,GitHub,GitHub
+  - RULE-SET,Discord,Discord
   - GEOSITE,CATEGORY-AI-!CN,AI
-  - RULE-SET,StaticResources,DIRECT
-  - RULE-SET,CDNResources,DIRECT
-  - RULE-SET,AdditionalCDNResources,DIRECT
+  - RULE-SET,StaticResources,选择代理
+  - RULE-SET,CDNResources,选择代理
+  - RULE-SET,AdditionalCDNResources,选择代理
   - RULE-SET,SteamFix,DIRECT
   - RULE-SET,GoogleFCM,DIRECT
   - GEOSITE,GOOGLE-PLAY@CN,DIRECT

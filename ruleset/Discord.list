@@ -1,0 +1,10 @@
+# Discord Core
+DOMAIN-SUFFIX,discord.com
+DOMAIN-SUFFIX,discord.gg
+DOMAIN-SUFFIX,discordapp.com
+DOMAIN-SUFFIX,discordapp.net
+DOMAIN-SUFFIX,discord.media
+
+# Discord Platform
+DOMAIN-SUFFIX,discord.dev
+DOMAIN-SUFFIX,discordstatus.com

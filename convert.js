@@ -210,6 +210,14 @@ const ruleProviders = {
         "interval": 86400,
         "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/GitHub.list",
         "path": "./ruleset/GitHub.list"
+    },
+    "Discord": {
+        "type": "http",
+        "behavior": "classical",
+        "format": "text",
+        "interval": 86400,
+        "url": "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/Discord.list",
+        "path": "./ruleset/Discord.list"
     }
 }
 
@@ -220,6 +228,7 @@ const baseRules = [
     // 核心分类
     `RULE-SET,Crypto,Crypto`,
     `RULE-SET,GitHub,GitHub`,
+    `RULE-SET,Discord,Discord`,
     "GEOSITE,CATEGORY-AI-!CN,AI",
     // 静态资源走代理选择（部分 CDN 在国内无法直连）
     `RULE-SET,StaticResources,${PROXY_GROUPS.SELECT}`,
@@ -547,6 +556,12 @@ function buildProxyGroups({
         {
             "name": "GitHub",
             "icon": "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png",
+            "type": "select",
+            "proxies": defaultProxies
+        },
+        {
+            "name": "Discord",
+            "icon": "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Discord.png",
             "type": "select",
             "proxies": defaultProxies
         },
