@@ -8,7 +8,7 @@ https://github.com/powerfullz/override-rules
 - ipv6: 启用 IPv6 支持（默认 false）
 - full: 输出完整配置（适合纯内核启动，默认 false）
 - keepalive: 启用 tcp-keep-alive（默认 false）
-- fakeip: DNS 使用 FakeIP 模式（默认 false，false 为 RedirHost）
+- fakeip: DNS 使用 FakeIP 模式（默认 true，false 为 RedirHost）
 - quic: 允许 QUIC 流量（UDP 443，默认 true）
 - threshold: 国家节点数量小于该值时不显示分组 (默认 0)
 */
@@ -58,6 +58,9 @@ function buildFeatureFlags(args) {
 
     // quic 默认为 true（允许 QUIC 流量）
     flags.quicEnabled = args.quic !== undefined ? parseBool(args.quic) : true;
+
+    // fakeip 默认为 true，避免 TUN/redir-host 场景下只保留被污染后的目标 IP
+    flags.fakeIPEnabled = args.fakeip !== undefined ? parseBool(args.fakeip) : true;
 
     // 单独处理数字参数
     flags.countryThreshold = parseNumber(args.threshold, 0);
@@ -284,7 +287,7 @@ const snifferConfig = {
             "ports": [443, 8443],
         }
     },
-    "override-destination": false,
+    "override-destination": true,
     "enable": true,
     "force-dns-mapping": true,
     "skip-domain": [
@@ -298,30 +301,37 @@ function buildDnsConfig({ mode, fakeIpFilter }) {
     const config = {
         "enable": true,
         "ipv6": ipv6Enabled,
-        "prefer-h3": true,
+        "prefer-h3": false,
         "enhanced-mode": mode,
         "default-nameserver": [
-            "119.29.29.29",
-            "223.5.5.5"
+            "223.5.5.5",
+            "119.29.29.29"
         ],
         "nameserver": [
-            "system",
-            "223.5.5.5",
-            "119.29.29.29",
-            "180.184.1.1"
-        ],
-        "fallback": [
-            "quic://dns0.eu",
             "https://dns.cloudflare.com/dns-query",
-            "https://dns.sb/dns-query",
-            "tcp://208.67.222.222",
-            "tcp://8.26.56.2"
+            "https://dns.google/dns-query",
+            "https://dns.quad9.net/dns-query"
         ],
+        "nameserver-policy": {
+            "geosite:cn,private": [
+                "https://dns.alidns.com/dns-query",
+                "https://doh.pub/dns-query"
+            ],
+            "geosite:discord": [
+                "https://dns.cloudflare.com/dns-query",
+                "https://dns.google/dns-query"
+            ]
+        },
         "proxy-server-nameserver": [
             "https://dns.alidns.com/dns-query",
-            "tls://dot.pub"
+            "https://doh.pub/dns-query",
+            "223.5.5.5"
         ]
     };
+
+    if (mode === "fake-ip") {
+        config["fake-ip-range"] = "198.18.0.1/16";
+    }
 
     if (fakeIpFilter) {
         config["fake-ip-filter"] = fakeIpFilter;
@@ -334,15 +344,16 @@ const dnsConfig = buildDnsConfig({ mode: "redir-host" });
 const dnsConfigFakeIp = buildDnsConfig({
     mode: "fake-ip",
     fakeIpFilter: [
-        "geosite:private",
-        "geosite:connectivity-check",
-        "geosite:cn",
-        "Mijia Cloud",
-        "dig.io.mi.com",
+        "*.lan",
+        "*.local",
         "localhost.ptlogin2.qq.com",
-        "*.icloud.com",
-        "*.stun.*.*",
-        "*.stun.*.*.*"
+        "dns.msftncsi.com",
+        "*.msftconnecttest.com",
+        "*.msftncsi.com",
+        "time.*.com",
+        "time.*.gov",
+        "time.*.edu.cn",
+        "time.*.apple.com"
     ]
 });
 
