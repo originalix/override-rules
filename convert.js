@@ -31,6 +31,10 @@ function parseNumber(value, defaultValue = 0) {
     return isNaN(num) ? defaultValue : num;
 }
 
+function unique(list) {
+    return [...new Set((list || []).filter(Boolean))];
+}
+
 /**
  * 解析传入的脚本参数，并将其转换为内部使用的功能开关（feature flags）。
  * @param {object} args - 传入的原始参数对象，如 $arguments。
@@ -340,6 +344,49 @@ function buildDnsConfig({ mode, fakeIpFilter }) {
     return config;
 }
 
+function cloneConfig(config) {
+    return JSON.parse(JSON.stringify(config));
+}
+
+function mergeProxyServerDnsOverrides(dns, sourceDns = {}, proxies = []) {
+    if (!sourceDns || typeof sourceDns !== "object") {
+        return dns;
+    }
+
+    const sourceProxyNameservers = Array.isArray(sourceDns["proxy-server-nameserver"])
+        ? sourceDns["proxy-server-nameserver"]
+        : [];
+
+    if (sourceProxyNameservers.length) {
+        const existingProxyNameservers = Array.isArray(dns["proxy-server-nameserver"])
+            ? dns["proxy-server-nameserver"]
+            : [];
+        dns["proxy-server-nameserver"] = unique([
+            ...sourceProxyNameservers,
+            ...existingProxyNameservers
+        ]);
+    }
+
+    const sourcePolicy = sourceDns["proxy-server-nameserver-policy"];
+    if (sourcePolicy && typeof sourcePolicy === "object" && !Array.isArray(sourcePolicy)) {
+        const proxyServers = new Set((proxies || [])
+            .map(proxy => proxy && proxy.server)
+            .filter(Boolean));
+        const matchedPolicy = Object.fromEntries(
+            Object.entries(sourcePolicy).filter(([server]) => proxyServers.has(server))
+        );
+
+        if (Object.keys(matchedPolicy).length) {
+            dns["proxy-server-nameserver-policy"] = {
+                ...(dns["proxy-server-nameserver-policy"] || {}),
+                ...matchedPolicy
+            };
+        }
+    }
+
+    return dns;
+}
+
 const dnsConfig = buildDnsConfig({ mode: "redir-host" });
 const dnsConfigFakeIp = buildDnsConfig({
     mode: "fake-ip",
@@ -645,13 +692,19 @@ function main(config) {
         }
     });
 
+    const dns = mergeProxyServerDnsOverrides(
+        cloneConfig(fakeIPEnabled ? dnsConfigFakeIp : dnsConfig),
+        config.dns,
+        resultConfig.proxies
+    );
+
     Object.assign(resultConfig, {
         "ipv6": ipv6Enabled,
         "proxy-groups": proxyGroups,
         "rule-providers": ruleProviders,
         "rules": finalRules,
         "sniffer": snifferConfig,
-        "dns": fakeIPEnabled ? dnsConfigFakeIp : dnsConfig,
+        "dns": dns,
         "geodata-mode": true,
         "geox-url": geoxURL,
     });
