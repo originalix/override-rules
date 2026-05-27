@@ -33,6 +33,10 @@ DOMAIN-SUFFIX,dydx.exchange
 DOMAIN,api.hyperliquid.xyz
 DOMAIN-SUFFIX,hyperliquid.xyz
 
+# OneKey
+DOMAIN-SUFFIX,onekeycn.com
+DOMAIN-SUFFIX,onekeytest.com
+
 DOMAIN-SUFFIX,solana.com
 DOMAIN-SUFFIX,avax.network
 DOMAIN-SUFFIX,optimism.io

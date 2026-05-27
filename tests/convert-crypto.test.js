@@ -45,6 +45,16 @@ assert.match(
   /^DOMAIN-SUFFIX,hyperliquid\.xyz$/m,
   'expected Clash Crypto ruleset to include all Hyperliquid subdomains'
 );
+assert.match(
+  clashRuleset,
+  /^DOMAIN-SUFFIX,onekeycn\.com$/m,
+  'expected Clash Crypto ruleset to include OneKey CN domains'
+);
+assert.match(
+  clashRuleset,
+  /^DOMAIN-SUFFIX,onekeytest\.com$/m,
+  'expected Clash Crypto ruleset to include OneKey test domains'
+);
 
 const quantumultxRuleset = fs.readFileSync(QUANTUMULTX_CRYPTO_FILE, 'utf8');
 assert.match(
@@ -56,4 +66,14 @@ assert.match(
   quantumultxRuleset,
   /^host-suffix,hyperliquid\.xyz,Crypto$/m,
   'expected QuantumultX Crypto ruleset to include all Hyperliquid subdomains'
+);
+assert.match(
+  quantumultxRuleset,
+  /^host-suffix,onekeycn\.com,Crypto$/m,
+  'expected QuantumultX Crypto ruleset to include OneKey CN domains'
+);
+assert.match(
+  quantumultxRuleset,
+  /^host-suffix,onekeytest\.com,Crypto$/m,
+  'expected QuantumultX Crypto ruleset to include OneKey test domains'
 );
