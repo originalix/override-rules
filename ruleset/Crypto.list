@@ -28,6 +28,11 @@ DOMAIN-SUFFIX,dogecoin.com
 DOMAIN-SUFFIX,paxful.com
 DOMAIN-SUFFIX,tether.to
 DOMAIN-SUFFIX,dydx.exchange
+
+# Hyperliquid
+DOMAIN,api.hyperliquid.xyz
+DOMAIN-SUFFIX,hyperliquid.xyz
+
 DOMAIN-SUFFIX,solana.com
 DOMAIN-SUFFIX,avax.network
 DOMAIN-SUFFIX,optimism.io

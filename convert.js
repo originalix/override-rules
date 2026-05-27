@@ -207,7 +207,7 @@ const ruleProviders = {
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/Crypto.list",
+        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@refs/heads/main/ruleset/Crypto.list",
         "path": "./ruleset/Crypto.list"
     },
     "GitHub": {

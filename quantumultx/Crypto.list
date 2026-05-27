@@ -31,6 +31,8 @@ host-suffix,dogecoin.com,Crypto
 host-suffix,paxful.com,Crypto
 host-suffix,tether.to,Crypto
 host-suffix,dydx.exchange,Crypto
+host,api.hyperliquid.xyz,Crypto
+host-suffix,hyperliquid.xyz,Crypto
 host-suffix,solana.com,Crypto
 host-suffix,avax.network,Crypto
 host-suffix,optimism.io,Crypto
