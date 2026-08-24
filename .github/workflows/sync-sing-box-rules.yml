@@ -1,0 +1,37 @@
+name: Sync sing-box and Quantumult X AI rules
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "30 23 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sync and verify rules
+        run: |
+          node sing-box/scripts/sync-rules.js
+          node sing-box/scripts/verify.js
+
+      - name: Commit updated rules
+        run: |
+          git add quantumultx/AI.list sing-box/rule-set
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: sync AI rules from Mihomo geosite"
+          git push

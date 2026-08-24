@@ -1,0 +1,30 @@
+{
+  "version": 4,
+  "rules": [
+    {
+      "domain": [
+        "copilot-proxy.githubusercontent.com"
+      ],
+      "domain_suffix": [
+        "github.com",
+        "github.io",
+        "github.dev",
+        "github.blog",
+        "githubassets.com",
+        "githubusercontent.com",
+        "ghcr.io",
+        "npm.pkg.github.com",
+        "maven.pkg.github.com",
+        "nuget.pkg.github.com",
+        "rubygems.pkg.github.com",
+        "githubstatus.com",
+        "copilot.github.com",
+        "education.github.com",
+        "classroom.github.com"
+      ],
+      "domain_keyword": [
+        "productionresultssa"
+      ]
+    }
+  ]
+}

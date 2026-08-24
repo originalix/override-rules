@@ -1,0 +1,14 @@
+{
+  "version": 4,
+  "rules": [
+    {
+      "domain": [
+        "steamcdn-a.akamaihd.net"
+      ],
+      "domain_suffix": [
+        "cm.steampowered.com",
+        "steamserver.net"
+      ]
+    }
+  ]
+}

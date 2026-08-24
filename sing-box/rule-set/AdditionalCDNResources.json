@@ -1,0 +1,35 @@
+{
+  "version": 4,
+  "rules": [
+    {
+      "domain": [
+        "production.cloudflare.docker.com",
+        "dl.flathub.org",
+        "assets.ppy.sh",
+        "autoupdate.termius.com",
+        "update.ayugram.one",
+        "sh.nfs.pub",
+        "download.calibre-ebook.com",
+        "dl.google.com",
+        "builds.dotnet.microsoft.com",
+        "downloadmirror.intel.com",
+        "pkgs.tailscale.com",
+        "updates-cdn.bravesoftware.com",
+        "updates.bravesoftware.com",
+        "dl.brave.com",
+        "referrals.brave.com",
+        "cdn.geekbench.com"
+      ],
+      "domain_suffix": [
+        "gvt1.com",
+        "scdn.co",
+        "spotifycdn.com",
+        "spotifycdn.net",
+        "pscdn.co"
+      ],
+      "domain_regex": [
+        "downloads[1-9].broadcom.com"
+      ]
+    }
+  ]
+}

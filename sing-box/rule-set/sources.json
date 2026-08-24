@@ -1,0 +1,67 @@
+{
+  "AI": {
+    "source": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat",
+    "category": "CATEGORY-AI-!CN",
+    "entries": 180,
+    "rules_sha256": "16142a8c9d27ad94d664c3e6446a18699e915855b96ec84031c02f226de68df7",
+    "quantumult_x_regex_approximations": 1
+  },
+  "Crypto": {
+    "sources": [
+      "ruleset/Crypto.list",
+      "quantumultx/Crypto.list"
+    ],
+    "entries": 252,
+    "rules_sha256": "b38e60f77656dbafde6ba4084c323d1475177f0a169096b1dfd01e090cd4c9ed"
+  },
+  "AdditionalCDNResources": {
+    "source": "ruleset/AdditionalCDNResources.list",
+    "entries": 22,
+    "rules_sha256": "d8d8c935f6c8af184e389e241d263d748a0bd57557da17af510cd0058964274b"
+  },
+  "AdditionalFilter": {
+    "source": "ruleset/AdditionalFilter.list",
+    "entries": 2,
+    "rules_sha256": "48285c1619868cbec3e0c12051bdbd53d4627ce8914ca835b1cfb4cefdd22a8e"
+  },
+  "Discord": {
+    "source": "ruleset/Discord.list",
+    "entries": 7,
+    "rules_sha256": "86aaa5c19509c748bc7124ec3370b317bf55d2fb5b03df1d5a382a2047d80b39"
+  },
+  "EHentai": {
+    "source": "ruleset/EHentai.list",
+    "entries": 7,
+    "rules_sha256": "7e3360c47ce64c7e0723fbdc3b265873840640f6ea243e6b08c5592a02db35a4"
+  },
+  "GoogleFCM": {
+    "source": "ruleset/FirebaseCloudMessaging.list",
+    "entries": 35,
+    "rules_sha256": "46b77fd7f3a1a3056c93d6d69dfdfd1d0b2ab5da26f4dc72501743f2e58a3945"
+  },
+  "GitHub": {
+    "source": "ruleset/GitHub.list",
+    "entries": 17,
+    "rules_sha256": "ddd94719f8e59745a49b01cd611a02c6f984ba840e08e3c99121b6f1d193ef74"
+  },
+  "SteamFix": {
+    "source": "ruleset/SteamFix.list",
+    "entries": 3,
+    "rules_sha256": "fa794a86390f000c3ce457af283d9370d65692a18575717204368a2ed631d0f0"
+  },
+  "TikTok": {
+    "source": "ruleset/TikTok.list",
+    "entries": 28,
+    "rules_sha256": "9d344674c7055a48401c79508904c5a4d8e78d09684550ae217fc83ba2051b66"
+  },
+  "TruthSocial": {
+    "source": "ruleset/TruthSocial.list",
+    "entries": 2,
+    "rules_sha256": "3623005f447d0bded0e26863b76d687ac0c476fa33339fca22a158e765123c1f"
+  },
+  "Weibo": {
+    "source": "ruleset/Weibo.list",
+    "entries": 3,
+    "rules_sha256": "d42aaabbf5a73b095516444a8f1e1a8dcc11e6f78f6095aa5a0fc46eb5a8a217"
+  }
+}

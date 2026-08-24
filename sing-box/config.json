@@ -1,0 +1,406 @@
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "type": "https",
+        "tag": "remote",
+        "server": "1.1.1.1",
+        "server_port": 443,
+        "path": "/dns-query",
+        "tls": {
+          "enabled": true,
+          "server_name": "cloudflare-dns.com"
+        },
+        "detour": "select"
+      },
+      {
+        "type": "local",
+        "tag": "local"
+      }
+    ],
+    "rules": [
+      {
+        "domain_suffix": [
+          "lan",
+          "local"
+        ],
+        "action": "route",
+        "server": "local"
+      }
+    ],
+    "final": "remote",
+    "strategy": "prefer_ipv4"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "auto_route": true,
+      "stack": "system"
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [],
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "type": "selector",
+      "tag": "AI",
+      "outbounds": [],
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "Crypto",
+      "outbounds": [],
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "GitHub",
+      "outbounds": [],
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "Discord",
+      "outbounds": [],
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "AdditionalFilter",
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/AdditionalFilter.json",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "AdditionalCDNResources",
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/AdditionalCDNResources.json",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "AI",
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/AI.json",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "Crypto",
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/Crypto.json",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "GitHub",
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/GitHub.json",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "Discord",
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/Discord.json",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "SteamFix",
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/SteamFix.json",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "GoogleFCM",
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/GoogleFCM.json",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "EHentai",
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/EHentai.json",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "TikTok",
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/TikTok.json",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "TruthSocial",
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/TruthSocial.json",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-google-play@cn",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google-play@cn.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-microsoft@cn",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-microsoft@cn.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-bilibili",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-bilibili.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-onedrive",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-onedrive.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-microsoft",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-microsoft.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-telegram",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-youtube",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-youtube.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-google",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-netflix",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-netflix.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-spotify",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-spotify.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-bahamut",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-bahamut.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-pikpak",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-pikpak.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-cn",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-private",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-private.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-cn",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "update_interval": "1d",
+        "download_detour": "select"
+      }
+    ],
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "port": 53,
+        "action": "hijack-dns"
+      },
+      {
+        "ip_is_private": true,
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "AdditionalFilter",
+        "action": "reject"
+      },
+      {
+        "rule_set": "Crypto",
+        "action": "route",
+        "outbound": "Crypto"
+      },
+      {
+        "rule_set": "GitHub",
+        "action": "route",
+        "outbound": "GitHub"
+      },
+      {
+        "rule_set": "Discord",
+        "action": "route",
+        "outbound": "Discord"
+      },
+      {
+        "rule_set": "AI",
+        "action": "route",
+        "outbound": "AI"
+      },
+      {
+        "rule_set": "AdditionalCDNResources",
+        "action": "route",
+        "outbound": "select"
+      },
+      {
+        "rule_set": "SteamFix",
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "GoogleFCM",
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geosite-google-play@cn",
+          "geosite-microsoft@cn",
+          "geosite-bilibili"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "TruthSocial",
+          "EHentai",
+          "TikTok",
+          "geosite-onedrive",
+          "geosite-microsoft",
+          "geosite-telegram",
+          "geosite-youtube",
+          "geosite-google",
+          "geosite-netflix",
+          "geosite-spotify",
+          "geosite-bahamut",
+          "geosite-pikpak"
+        ],
+        "action": "route",
+        "outbound": "select"
+      },
+      {
+        "rule_set": [
+          "geosite-cn",
+          "geosite-private",
+          "geoip-cn"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      }
+    ],
+    "final": "select",
+    "default_domain_resolver": "local"
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090"
+    }
+  }
+}
