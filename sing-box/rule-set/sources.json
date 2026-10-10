@@ -2,8 +2,8 @@
   "AI": {
     "source": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat",
     "category": "CATEGORY-AI-!CN",
-    "entries": 189,
-    "rules_sha256": "2758fa6086ac00cdd2009d5e474a29b4968a1f9b1b06d4a0c8a665f36e147544",
+    "entries": 190,
+    "rules_sha256": "4ff2f17d72d4c11d57ab99c7bae4ef7ff926839cce19af390f49fe87ab5a815a",
     "quantumult_x_regex_approximations": 1
   },
   "Crypto": {
