@@ -37,6 +37,9 @@ proxy-groups:
     icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png
     type: select
     proxies: *a1
+  - name: Special Sites
+    type: select
+    proxies: *a1
   - name: Discord
     icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Discord.png
     type: select
@@ -86,6 +89,7 @@ proxy-groups:
       - AI
       - Crypto
       - GitHub
+      - Special Sites
       - Discord
       - 低倍率节点
       - 香港节点
@@ -184,6 +188,10 @@ rules:
   - RULE-SET,Crypto,Crypto
   - RULE-SET,GitHub,GitHub
   - RULE-SET,Discord,Discord
+  - DOMAIN-SUFFIX,grok.com,Special Sites
+  - DOMAIN-SUFFIX,x.ai,Special Sites
+  - DOMAIN-SUFFIX,sendgrid.com,Special Sites
+  - DOMAIN-SUFFIX,challenges.cloudflare.com,Special Sites
   - GEOSITE,CATEGORY-AI-!CN,AI
   - RULE-SET,StaticResources,选择代理
   - RULE-SET,CDNResources,选择代理

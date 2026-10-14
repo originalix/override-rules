@@ -1,0 +1,9 @@
+# > Special Sites
+# >> Mirrors the Special Sites domain rules in convert.js (including subdomains).
+# >> Use an independent selectable policy named Special Sites; select Taiwan locally.
+# >> Load before AI.list and other matching rules; do not force this resource to AI.
+
+host-suffix,grok.com,Special Sites
+host-suffix,x.ai,Special Sites
+host-suffix,sendgrid.com,Special Sites
+host-suffix,challenges.cloudflare.com,Special Sites

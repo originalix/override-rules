@@ -236,6 +236,10 @@ const baseRules = [
     `RULE-SET,Crypto,Crypto`,
     `RULE-SET,GitHub,GitHub`,
     `RULE-SET,Discord,Discord`,
+    "DOMAIN-SUFFIX,grok.com,Special Sites",
+    "DOMAIN-SUFFIX,x.ai,Special Sites",
+    "DOMAIN-SUFFIX,sendgrid.com,Special Sites",
+    "DOMAIN-SUFFIX,challenges.cloudflare.com,Special Sites",
     "GEOSITE,CATEGORY-AI-!CN,AI",
     // 静态资源走代理选择（部分 CDN 在国内无法直连）
     `RULE-SET,StaticResources,${PROXY_GROUPS.SELECT}`,
@@ -614,6 +618,11 @@ function buildProxyGroups({
         {
             "name": "GitHub",
             "icon": "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png",
+            "type": "select",
+            "proxies": defaultProxies
+        },
+        {
+            "name": "Special Sites",
             "type": "select",
             "proxies": defaultProxies
         },
