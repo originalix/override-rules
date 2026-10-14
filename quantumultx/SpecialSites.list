@@ -1,5 +1,5 @@
 # > Special Sites
-# >> Mirrors the Special Sites domain rules in convert.js (including subdomains).
+# >> Mirrors the Special Sites rules in convert.js (host-suffix includes subdomains).
 # >> Use an independent selectable policy named Special Sites; select Taiwan locally.
 # >> Load before AI.list and other matching rules; do not force this resource to AI.
 
@@ -7,3 +7,30 @@ host-suffix,grok.com,Special Sites
 host-suffix,x.ai,Special Sites
 host-suffix,sendgrid.com,Special Sites
 host-suffix,challenges.cloudflare.com,Special Sites
+
+# >> Temporary: Slack / Huddles and Google Meet, including media IP connections.
+host-suffix,slack.com,Special Sites
+host-suffix,slack-edge.com,Special Sites
+host-suffix,slack-core.com,Special Sites
+host-suffix,slack-files.com,Special Sites
+host-suffix,slack-imgs.com,Special Sites
+host-suffix,slack-msgs.com,Special Sites
+host-suffix,slack-redir.net,Special Sites
+host-suffix,slackb.com,Special Sites
+host-suffix,slack-mcps.com,Special Sites
+host-suffix,slack-mcps-host.com,Special Sites
+# >> https://slack.com/help/articles/36284146785427
+host-suffix,chime.aws,Special Sites
+ip-cidr,99.77.128.0/18,Special Sites
+# >> https://support.google.com/a/answer/1279090
+host-suffix,meet.google.com,Special Sites
+host,meetings.googleapis.com,Special Sites
+host,hangouts.googleapis.com,Special Sites
+host,workspace.turns.goog,Special Sites
+host,meet.turns.goog,Special Sites
+ip-cidr,74.125.250.0/24,Special Sites
+ip-cidr,74.125.247.128/32,Special Sites
+ip-cidr,142.250.82.0/24,Special Sites
+ip6-cidr,2001:4860:4864:5::/64,Special Sites
+ip6-cidr,2001:4860:4864:4:8000::/128,Special Sites
+ip6-cidr,2001:4860:4864:6::/64,Special Sites

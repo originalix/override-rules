@@ -234,6 +234,29 @@ rules:
   - DOMAIN-SUFFIX,x.ai,Special Sites
   - DOMAIN-SUFFIX,sendgrid.com,Special Sites
   - DOMAIN-SUFFIX,challenges.cloudflare.com,Special Sites
+  - DOMAIN-SUFFIX,slack.com,Special Sites
+  - DOMAIN-SUFFIX,slack-edge.com,Special Sites
+  - DOMAIN-SUFFIX,slack-core.com,Special Sites
+  - DOMAIN-SUFFIX,slack-files.com,Special Sites
+  - DOMAIN-SUFFIX,slack-imgs.com,Special Sites
+  - DOMAIN-SUFFIX,slack-msgs.com,Special Sites
+  - DOMAIN-SUFFIX,slack-redir.net,Special Sites
+  - DOMAIN-SUFFIX,slackb.com,Special Sites
+  - DOMAIN-SUFFIX,slack-mcps.com,Special Sites
+  - DOMAIN-SUFFIX,slack-mcps-host.com,Special Sites
+  - DOMAIN-SUFFIX,chime.aws,Special Sites
+  - IP-CIDR,99.77.128.0/18,Special Sites,no-resolve
+  - DOMAIN-SUFFIX,meet.google.com,Special Sites
+  - DOMAIN,meetings.googleapis.com,Special Sites
+  - DOMAIN,hangouts.googleapis.com,Special Sites
+  - DOMAIN,workspace.turns.goog,Special Sites
+  - DOMAIN,meet.turns.goog,Special Sites
+  - IP-CIDR,74.125.250.0/24,Special Sites,no-resolve
+  - IP-CIDR,74.125.247.128/32,Special Sites,no-resolve
+  - IP-CIDR,142.250.82.0/24,Special Sites,no-resolve
+  - IP-CIDR6,2001:4860:4864:5::/64,Special Sites,no-resolve
+  - IP-CIDR6,2001:4860:4864:4:8000::/128,Special Sites,no-resolve
+  - IP-CIDR6,2001:4860:4864:6::/64,Special Sites,no-resolve
   - GEOSITE,CATEGORY-AI-!CN,AI
   - RULE-SET,StaticResources,选择代理
   - RULE-SET,CDNResources,选择代理
