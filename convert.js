@@ -239,7 +239,6 @@ const baseRules = [
     "DOMAIN-SUFFIX,grok.com,Special Sites",
     "DOMAIN-SUFFIX,x.ai,Special Sites",
     "DOMAIN-SUFFIX,sendgrid.com,Special Sites",
-    "DOMAIN-SUFFIX,challenges.cloudflare.com,Special Sites",
     // 临时：Slack / Huddles 和 Google Meet；媒体 IP 连接也需覆盖。
     "DOMAIN-SUFFIX,slack.com,Special Sites",
     "DOMAIN-SUFFIX,slack-edge.com,Special Sites",

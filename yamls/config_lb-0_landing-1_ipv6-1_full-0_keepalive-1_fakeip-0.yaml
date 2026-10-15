@@ -233,7 +233,6 @@ rules:
   - DOMAIN-SUFFIX,grok.com,Special Sites
   - DOMAIN-SUFFIX,x.ai,Special Sites
   - DOMAIN-SUFFIX,sendgrid.com,Special Sites
-  - DOMAIN-SUFFIX,challenges.cloudflare.com,Special Sites
   - DOMAIN-SUFFIX,slack.com,Special Sites
   - DOMAIN-SUFFIX,slack-edge.com,Special Sites
   - DOMAIN-SUFFIX,slack-core.com,Special Sites

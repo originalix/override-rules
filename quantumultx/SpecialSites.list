@@ -6,7 +6,6 @@
 host-suffix,grok.com,Special Sites
 host-suffix,x.ai,Special Sites
 host-suffix,sendgrid.com,Special Sites
-host-suffix,challenges.cloudflare.com,Special Sites
 
 # >> Temporary: Slack / Huddles and Google Meet, including media IP connections.
 host-suffix,slack.com,Special Sites
