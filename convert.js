@@ -215,7 +215,7 @@ const ruleProviders = {
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/GitHub.list",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/ruleset/GitHub.list",
         "path": "./ruleset/GitHub.list"
     },
     "Discord": {
