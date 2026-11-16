@@ -41,8 +41,8 @@
   },
   "GitHub": {
     "source": "ruleset/GitHub.list",
-    "entries": 17,
-    "rules_sha256": "ddd94719f8e59745a49b01cd611a02c6f984ba840e08e3c99121b6f1d193ef74"
+    "entries": 124,
+    "rules_sha256": "c02ca5b459b8be43aea41005d923d54218acc62378cd7bc02a4ef25771733cb2"
   },
   "SteamFix": {
     "source": "ruleset/SteamFix.list",
