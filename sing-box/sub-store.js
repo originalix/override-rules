@@ -59,7 +59,8 @@ for (const tag of uniqueNodeTags) {
   if (baseTags.has(tag)) throw new Error(`node tag conflicts with base outbound: ${tag}`);
 }
 
-const policyTags = new Set(['AI', 'Crypto', 'GitHub', 'Discord']);
+// GitHub and Discord also support clients with a cached, older base profile.
+const policyTags = new Set(['AI', 'Crypto', 'Special Sites', 'GitHub', 'Discord']);
 for (const outbound of baseOutbounds) {
   if (outbound.tag === 'auto') {
     outbound.outbounds = [...uniqueNodeTags];

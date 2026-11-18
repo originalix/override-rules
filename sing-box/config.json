@@ -76,13 +76,7 @@
     },
     {
       "type": "selector",
-      "tag": "GitHub",
-      "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
-      "type": "selector",
-      "tag": "Discord",
+      "tag": "Special Sites",
       "outbounds": [],
       "interrupt_exist_connections": true
     },
@@ -128,17 +122,17 @@
       },
       {
         "type": "remote",
-        "tag": "GitHub",
+        "tag": "SpecialSites",
         "format": "source",
-        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/GitHub.json",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/SpecialSites.json",
         "update_interval": "1d",
         "download_detour": "select"
       },
       {
         "type": "remote",
-        "tag": "Discord",
+        "tag": "AIPinned",
         "format": "source",
-        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/Discord.json",
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/sing-box/rule-set/AIPinned.json",
         "update_interval": "1d",
         "download_detour": "select"
       },
@@ -317,6 +311,11 @@
         "outbound": "direct"
       },
       {
+        "rule_set": "AIPinned",
+        "action": "route",
+        "outbound": "AI"
+      },
+      {
         "rule_set": "AdditionalFilter",
         "action": "reject"
       },
@@ -326,14 +325,9 @@
         "outbound": "Crypto"
       },
       {
-        "rule_set": "GitHub",
+        "rule_set": "SpecialSites",
         "action": "route",
-        "outbound": "GitHub"
-      },
-      {
-        "rule_set": "Discord",
-        "action": "route",
-        "outbound": "Discord"
+        "outbound": "Special Sites"
       },
       {
         "rule_set": "AI",

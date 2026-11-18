@@ -4,6 +4,8 @@ const vm = require('node:vm');
 const assert = require('node:assert/strict');
 
 const {
+  LOCAL_RULE_SETS,
+  SPECIAL_SITE_SOURCES,
   assertSameEntries,
   hashEntries,
   parseMihomo,
@@ -13,20 +15,6 @@ const {
 } = require('./rules-lib');
 
 const ROOT = path.resolve(__dirname, '../..');
-const RULE_SET_DIR = path.join(ROOT, 'sing-box/rule-set');
-
-const LOCAL_RULE_SETS = [
-  ['AdditionalCDNResources', 'ruleset/AdditionalCDNResources.list'],
-  ['AdditionalFilter', 'ruleset/AdditionalFilter.list'],
-  ['Discord', 'ruleset/Discord.list'],
-  ['EHentai', 'ruleset/EHentai.list'],
-  ['GoogleFCM', 'ruleset/FirebaseCloudMessaging.list'],
-  ['GitHub', 'ruleset/GitHub.list'],
-  ['SteamFix', 'ruleset/SteamFix.list'],
-  ['TikTok', 'ruleset/TikTok.list'],
-  ['TruthSocial', 'ruleset/TruthSocial.list'],
-  ['Weibo', 'ruleset/Weibo.list'],
-];
 
 function read(relativePath) {
   return fs.readFileSync(path.join(ROOT, relativePath), 'utf8');
@@ -75,12 +63,13 @@ async function verifySubStoreScript() {
     [...outbounds.get('select').outbounds],
     ['auto', 'vless-fixture', 'anytls-fixture'],
   );
-  for (const policy of ['AI', 'Crypto', 'GitHub', 'Discord']) {
+  for (const policy of ['AI', 'Crypto', 'Special Sites']) {
     assert.deepEqual(
       [...outbounds.get(policy).outbounds],
       ['select', 'auto', 'vless-fixture', 'anytls-fixture'],
     );
   }
+  assert.ok(!outbounds.has('GitHub') && !outbounds.has('Discord'));
   assert.equal(outbounds.get('vless-fixture').type, 'vless');
   assert.equal(outbounds.get('anytls-fixture').type, 'anytls');
 }
@@ -92,6 +81,14 @@ async function main() {
   const singBoxAI = ruleSetToEntries(readJson('sing-box/rule-set/AI.json'));
   assertSameEntries(qxAI, singBoxAI, 'Quantumult X and sing-box AI rules');
   verifySourceMetadata('AI', singBoxAI, sources);
+
+  const pinned = parseMihomo(read('ruleset/AIPinned.list'));
+  assertSameEntries([...pinned, ...qxAI], qxAI, 'AI includes pinned rules');
+  const special = SPECIAL_SITE_SOURCES.flatMap(source => parseMihomo(read(source)));
+  assertSameEntries(special, parseMihomo(read('ruleset/SpecialSites.list')), 'Mihomo Special Sites');
+  assertSameEntries(special, parseQuantumultX(read('quantumultx/SpecialSites.list'), 'Special Sites'), 'QX Special Sites');
+  assertSameEntries(special, ruleSetToEntries(readJson('sing-box/rule-set/SpecialSites.json')), 'sing-box Special Sites');
+  verifySourceMetadata('SpecialSites', special, sources);
 
   const qxCrypto = parseQuantumultX(read('quantumultx/Crypto.list'), 'Crypto');
   const mihomoCrypto = parseMihomo(read('ruleset/Crypto.list'));
@@ -108,6 +105,11 @@ async function main() {
   }
 
   const config = readJson('sing-box/config.json');
+  const routeOrder = config.route.rules.map(rule => rule.rule_set);
+  assert.ok(routeOrder.indexOf('AIPinned') >= 0 && routeOrder.indexOf('AIPinned') < routeOrder.indexOf('SpecialSites'));
+  assert.ok(routeOrder.indexOf('SpecialSites') < routeOrder.indexOf('AI'));
+  assert.equal(config.route.rules.find(rule => rule.rule_set === 'AIPinned').outbound, 'AI');
+  assert.equal(config.route.rules.find(rule => rule.rule_set === 'SpecialSites').outbound, 'Special Sites');
   const ruleSetTags = new Set((config.route.rule_set || []).map((item) => item.tag));
   const outboundTags = new Set((config.outbounds || []).map((item) => item.tag));
   for (const rule of config.route.rules || []) {

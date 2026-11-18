@@ -1,10 +1,10 @@
 # sing-box rules and Sub-Store profile
 
-This directory adds sing-box support without changing the existing Mihomo
-converter. `Crypto` is checked against both existing Mihomo and Quantumult X
-lists. `AI` is extracted from the same Loyalsoldier `geosite.dat` referenced by
-`convert.js`; the Quantumult X AI list and sing-box AI rule-set are generated
-from that extraction.
+GitHub, Discord and the other Special Sites share one selector. Their rules are
+merged from `ruleset/GitHub.list`, `Discord.list` and `SpecialSitesExtra.list`.
+The AI list combines Loyalsoldier’s `CATEGORY-AI-!CN` with the suffixes in
+`ruleset/AIPinned.list`. The pinned suffixes take priority in the sing-box and
+Mihomo profiles.
 
 Quantumult X cannot express regular-expression hostname rules. The single
 regex currently present in `CATEGORY-AI-!CN` is emitted as the narrowest
@@ -18,8 +18,8 @@ node sing-box/scripts/sync-rules.js
 node sing-box/scripts/verify.js
 ```
 
-`sync-rules.js` updates only `quantumultx/AI.list` and files under
-`sing-box/rule-set/`. It does not modify Mihomo configuration or rule files.
+`sync-rules.js` generates `ruleset/SpecialSites.list`, the Quantumult X
+`SpecialSites.list` and `AI.list`, and the JSON files in `sing-box/rule-set/`.
 
 ## Sub-Store
 

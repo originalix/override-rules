@@ -2,6 +2,7 @@
   "AI": {
     "source": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat",
     "category": "CATEGORY-AI-!CN",
+    "pinned_source": "ruleset/AIPinned.list",
     "entries": 218,
     "rules_sha256": "c6dfa4d1ebad2c7213dc364001826a72ad09290d8e64a5dc002ae34f4ee28784",
     "quantumult_x_regex_approximations": 1
@@ -13,6 +14,20 @@
     ],
     "entries": 252,
     "rules_sha256": "b38e60f77656dbafde6ba4084c323d1475177f0a169096b1dfd01e090cd4c9ed"
+  },
+  "SpecialSites": {
+    "sources": [
+      "ruleset/GitHub.list",
+      "ruleset/Discord.list",
+      "ruleset/SpecialSitesExtra.list"
+    ],
+    "entries": 157,
+    "rules_sha256": "228f00fa095f13daaa36f0581bd25d9831be827276d0e37ee6f396aebfa28b5d"
+  },
+  "AIPinned": {
+    "source": "ruleset/AIPinned.list",
+    "entries": 17,
+    "rules_sha256": "509728a86ce1aadbbcf88b3a1b5c256bf9499dab2efcb2aeb6ae8f607500f8d8"
   },
   "AdditionalCDNResources": {
     "source": "ruleset/AdditionalCDNResources.list",

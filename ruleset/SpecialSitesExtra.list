@@ -1,0 +1,32 @@
+# Special Sites
+
+DOMAIN-SUFFIX,grok.com
+DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,sendgrid.com
+
+# Temporary: Slack / Huddles and Google Meet, including media IP connections.
+DOMAIN-SUFFIX,slack.com
+DOMAIN-SUFFIX,slack-edge.com
+DOMAIN-SUFFIX,slack-core.com
+DOMAIN-SUFFIX,slack-files.com
+DOMAIN-SUFFIX,slack-imgs.com
+DOMAIN-SUFFIX,slack-msgs.com
+DOMAIN-SUFFIX,slack-redir.net
+DOMAIN-SUFFIX,slackb.com
+DOMAIN-SUFFIX,slack-mcps.com
+DOMAIN-SUFFIX,slack-mcps-host.com
+# https://slack.com/help/articles/36284146785427
+DOMAIN-SUFFIX,chime.aws
+IP-CIDR,99.77.128.0/18,no-resolve
+# https://support.google.com/a/answer/1279090
+DOMAIN-SUFFIX,meet.google.com
+DOMAIN,meetings.googleapis.com
+DOMAIN,hangouts.googleapis.com
+DOMAIN,workspace.turns.goog
+DOMAIN,meet.turns.goog
+IP-CIDR,74.125.250.0/24,no-resolve
+IP-CIDR,74.125.247.128/32,no-resolve
+IP-CIDR,142.250.82.0/24,no-resolve
+IP-CIDR6,2001:4860:4864:5::/64,no-resolve
+IP-CIDR6,2001:4860:4864:4:8000::/128,no-resolve
+IP-CIDR6,2001:4860:4864:6::/64,no-resolve

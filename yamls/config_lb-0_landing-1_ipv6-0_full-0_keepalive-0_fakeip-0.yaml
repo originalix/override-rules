@@ -53,15 +53,7 @@ proxy-groups:
     icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cryptocurrency_3.png
     type: select
     proxies: *a1
-  - name: GitHub
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png
-    type: select
-    proxies: *a1
   - name: Special Sites
-    type: select
-    proxies: *a1
-  - name: Discord
-    icon: https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Discord.png
     type: select
     proxies: *a1
   - name: 低倍率节点
@@ -130,9 +122,7 @@ proxy-groups:
       - 落地节点
       - AI
       - Crypto
-      - GitHub
       - Special Sites
-      - Discord
       - 低倍率节点
       - 香港节点
       - 台湾节点
@@ -210,52 +200,26 @@ rule-providers:
     interval: 86400
     url: https://gcore.jsdelivr.net/gh/originalix/override-rules@refs/heads/main/ruleset/Crypto.list
     path: ./ruleset/Crypto.list
-  GitHub:
+  AIPinned:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/ruleset/GitHub.list
-    path: ./ruleset/GitHub.list
-  Discord:
+    url: https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/ruleset/AIPinned.list
+    path: ./ruleset/AIPinned.list
+  SpecialSites:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/Discord.list
-    path: ./ruleset/Discord.list
+    url: https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/ruleset/SpecialSites.list
+    path: ./ruleset/SpecialSites.list
 rules:
+  - RULE-SET,AIPinned,AI
   - RULE-SET,AdditionalFilter,REJECT
   - RULE-SET,SogouInput,REJECT
   - RULE-SET,Crypto,Crypto
-  - RULE-SET,GitHub,GitHub
-  - RULE-SET,Discord,Discord
-  - DOMAIN-SUFFIX,grok.com,Special Sites
-  - DOMAIN-SUFFIX,x.ai,Special Sites
-  - DOMAIN-SUFFIX,sendgrid.com,Special Sites
-  - DOMAIN-SUFFIX,slack.com,Special Sites
-  - DOMAIN-SUFFIX,slack-edge.com,Special Sites
-  - DOMAIN-SUFFIX,slack-core.com,Special Sites
-  - DOMAIN-SUFFIX,slack-files.com,Special Sites
-  - DOMAIN-SUFFIX,slack-imgs.com,Special Sites
-  - DOMAIN-SUFFIX,slack-msgs.com,Special Sites
-  - DOMAIN-SUFFIX,slack-redir.net,Special Sites
-  - DOMAIN-SUFFIX,slackb.com,Special Sites
-  - DOMAIN-SUFFIX,slack-mcps.com,Special Sites
-  - DOMAIN-SUFFIX,slack-mcps-host.com,Special Sites
-  - DOMAIN-SUFFIX,chime.aws,Special Sites
-  - IP-CIDR,99.77.128.0/18,Special Sites,no-resolve
-  - DOMAIN-SUFFIX,meet.google.com,Special Sites
-  - DOMAIN,meetings.googleapis.com,Special Sites
-  - DOMAIN,hangouts.googleapis.com,Special Sites
-  - DOMAIN,workspace.turns.goog,Special Sites
-  - DOMAIN,meet.turns.goog,Special Sites
-  - IP-CIDR,74.125.250.0/24,Special Sites,no-resolve
-  - IP-CIDR,74.125.247.128/32,Special Sites,no-resolve
-  - IP-CIDR,142.250.82.0/24,Special Sites,no-resolve
-  - IP-CIDR6,2001:4860:4864:5::/64,Special Sites,no-resolve
-  - IP-CIDR6,2001:4860:4864:4:8000::/128,Special Sites,no-resolve
-  - IP-CIDR6,2001:4860:4864:6::/64,Special Sites,no-resolve
+  - RULE-SET,SpecialSites,Special Sites,no-resolve
   - GEOSITE,CATEGORY-AI-!CN,AI
   - RULE-SET,StaticResources,选择代理
   - RULE-SET,CDNResources,选择代理

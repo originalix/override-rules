@@ -210,61 +210,32 @@ const ruleProviders = {
         "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@refs/heads/main/ruleset/Crypto.list",
         "path": "./ruleset/Crypto.list"
     },
-    "GitHub": {
+    "AIPinned": {
         "type": "http",
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/ruleset/GitHub.list",
-        "path": "./ruleset/GitHub.list"
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/ruleset/AIPinned.list",
+        "path": "./ruleset/AIPinned.list"
     },
-    "Discord": {
+    "SpecialSites": {
         "type": "http",
         "behavior": "classical",
         "format": "text",
         "interval": 86400,
-        "url": "https://gcore.jsdelivr.net/gh/originalix/override-rules@master/ruleset/Discord.list",
-        "path": "./ruleset/Discord.list"
+        "url": "https://raw.githubusercontent.com/originalix/override-rules/refs/heads/main/ruleset/SpecialSites.list",
+        "path": "./ruleset/SpecialSites.list"
     }
 }
 
 const baseRules = [
+    "RULE-SET,AIPinned,AI",
     // 广告拦截
     `RULE-SET,AdditionalFilter,REJECT`,
     `RULE-SET,SogouInput,REJECT`,
     // 核心分类
     `RULE-SET,Crypto,Crypto`,
-    `RULE-SET,GitHub,GitHub`,
-    `RULE-SET,Discord,Discord`,
-    "DOMAIN-SUFFIX,grok.com,Special Sites",
-    "DOMAIN-SUFFIX,x.ai,Special Sites",
-    "DOMAIN-SUFFIX,sendgrid.com,Special Sites",
-    // 临时：Slack / Huddles 和 Google Meet；媒体 IP 连接也需覆盖。
-    "DOMAIN-SUFFIX,slack.com,Special Sites",
-    "DOMAIN-SUFFIX,slack-edge.com,Special Sites",
-    "DOMAIN-SUFFIX,slack-core.com,Special Sites",
-    "DOMAIN-SUFFIX,slack-files.com,Special Sites",
-    "DOMAIN-SUFFIX,slack-imgs.com,Special Sites",
-    "DOMAIN-SUFFIX,slack-msgs.com,Special Sites",
-    "DOMAIN-SUFFIX,slack-redir.net,Special Sites",
-    "DOMAIN-SUFFIX,slackb.com,Special Sites",
-    "DOMAIN-SUFFIX,slack-mcps.com,Special Sites",
-    "DOMAIN-SUFFIX,slack-mcps-host.com,Special Sites",
-    // https://slack.com/help/articles/36284146785427
-    "DOMAIN-SUFFIX,chime.aws,Special Sites",
-    "IP-CIDR,99.77.128.0/18,Special Sites,no-resolve",
-    // https://support.google.com/a/answer/1279090
-    "DOMAIN-SUFFIX,meet.google.com,Special Sites",
-    "DOMAIN,meetings.googleapis.com,Special Sites",
-    "DOMAIN,hangouts.googleapis.com,Special Sites",
-    "DOMAIN,workspace.turns.goog,Special Sites",
-    "DOMAIN,meet.turns.goog,Special Sites",
-    "IP-CIDR,74.125.250.0/24,Special Sites,no-resolve",
-    "IP-CIDR,74.125.247.128/32,Special Sites,no-resolve",
-    "IP-CIDR,142.250.82.0/24,Special Sites,no-resolve",
-    "IP-CIDR6,2001:4860:4864:5::/64,Special Sites,no-resolve",
-    "IP-CIDR6,2001:4860:4864:4:8000::/128,Special Sites,no-resolve",
-    "IP-CIDR6,2001:4860:4864:6::/64,Special Sites,no-resolve",
+    "RULE-SET,SpecialSites,Special Sites,no-resolve",
     "GEOSITE,CATEGORY-AI-!CN,AI",
     // 静态资源走代理选择（部分 CDN 在国内无法直连）
     `RULE-SET,StaticResources,${PROXY_GROUPS.SELECT}`,
@@ -641,19 +612,7 @@ function buildProxyGroups({
             "proxies": defaultProxies
         },
         {
-            "name": "GitHub",
-            "icon": "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png",
-            "type": "select",
-            "proxies": defaultProxies
-        },
-        {
             "name": "Special Sites",
-            "type": "select",
-            "proxies": defaultProxies
-        },
-        {
-            "name": "Discord",
-            "icon": "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Discord.png",
             "type": "select",
             "proxies": defaultProxies
         },
