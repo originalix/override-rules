@@ -3,8 +3,8 @@
     "source": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat",
     "category": "CATEGORY-AI-!CN",
     "pinned_source": "ruleset/AIPinned.list",
-    "entries": 218,
-    "rules_sha256": "c6dfa4d1ebad2c7213dc364001826a72ad09290d8e64a5dc002ae34f4ee28784",
+    "entries": 219,
+    "rules_sha256": "0a3d74e9eb701a6c8f6b0d8639e0ab27ece110cbaebb4b89cced4ac0d22cf9a2",
     "quantumult_x_regex_approximations": 1
   },
   "Crypto": {
