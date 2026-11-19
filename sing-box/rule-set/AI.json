@@ -39,7 +39,11 @@
         "browser-intake-datadoghq.com",
         "o33249.ingest.sentry.io",
         "o33249.ingest.us.sentry.io",
-        "openai.qualtrics.com"
+        "openai.qualtrics.com",
+        "cdn.usefathom.com",
+        "browser-intake-us5-datadoghq.com",
+        "anthropic.auth0.com",
+        "anthropic-com.ghost.io"
       ],
       "domain_suffix": [
         "claude.app",
@@ -222,10 +226,30 @@
         "cici.com",
         "ciciai.com",
         "ciciaicdn.com",
-        "dola.com"
+        "dola.com",
+        "stripe.com",
+        "withpersona.com",
+        "frompersona.com",
+        "hs-analytics.net",
+        "hs-scripts.com",
+        "hubspot.com",
+        "adspower.com",
+        "adspower.net",
+        "statsig.com",
+        "statsigapi.net",
+        "intercom.io",
+        "intercomcdn.com"
+      ],
+      "domain_keyword": [
+        "datadog",
+        "sift"
       ],
       "domain_regex": [
         "^chatgpt-async-webps-prod-\\S+-\\d+\\.webpubsub\\.azure\\.com$"
+      ],
+      "ip_cidr": [
+        "160.79.104.0/21",
+        "2607:6bc0::/32"
       ]
     }
   ]

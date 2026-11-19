@@ -44,7 +44,16 @@ const pinned = fs.readFileSync(path.join(ROOT, 'ruleset', 'AIPinned.list'), 'utf
 for (const host of [
   'claude.ai', 'ant.dev', 'anthropic.com', 'anthropic.team', 'antspace.dev', 'chatbotclaude.com',
   'clau.de', 'claude.app', 'claude.com', 'claude.dev', 'claude.new', 'claude.site', 'claudeacademy.com',
-  'claudemcpclient.com', 'claudemcpcontent.com', 'claudepages.dev', 'claudestudio.com',
+  'claudemcpclient.com', 'claudemcpcontent.com', 'claudepages.dev', 'claudestudio.com', 'claudeusercontent.com',
 ]) {
   assert.ok(pinned.includes(`DOMAIN-SUFFIX,${host}`), host);
+}
+for (const rule of [
+  'DOMAIN,anthropic.auth0.com',
+  'DOMAIN-KEYWORD,datadog',
+  'DOMAIN-KEYWORD,sift',
+  'IP-CIDR,160.79.104.0/21,no-resolve',
+  'IP-CIDR6,2607:6bc0::/32,no-resolve',
+]) {
+  assert.ok(pinned.includes(rule), rule);
 }

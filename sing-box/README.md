@@ -2,9 +2,9 @@
 
 GitHub, Discord and the other Special Sites share one selector. Their rules are
 merged from `ruleset/GitHub.list`, `Discord.list` and `SpecialSitesExtra.list`.
-The AI list combines Loyalsoldier’s `CATEGORY-AI-!CN` with the suffixes in
-`ruleset/AIPinned.list`. The pinned suffixes take priority in the sing-box and
-Mihomo profiles.
+The AI list combines Loyalsoldier’s `CATEGORY-AI-!CN` with the domains,
+domain keywords and IP ranges in `ruleset/AIPinned.list`. These pinned rules
+take priority over the other service rules in the sing-box and Mihomo profiles.
 
 Quantumult X cannot express regular-expression hostname rules. The single
 regex currently present in `CATEGORY-AI-!CN` is emitted as the narrowest

@@ -2,6 +2,13 @@
   "version": 4,
   "rules": [
     {
+      "domain": [
+        "cdn.usefathom.com",
+        "http-intake.logs.us5.datadoghq.com",
+        "browser-intake-us5-datadoghq.com",
+        "anthropic.auth0.com",
+        "anthropic-com.ghost.io"
+      ],
       "domain_suffix": [
         "ant.dev",
         "anthropic.com",
@@ -19,7 +26,28 @@
         "claudemcpclient.com",
         "claudemcpcontent.com",
         "claudepages.dev",
-        "claudestudio.com"
+        "claudestudio.com",
+        "claudeusercontent.com",
+        "stripe.com",
+        "withpersona.com",
+        "frompersona.com",
+        "hs-analytics.net",
+        "hs-scripts.com",
+        "hubspot.com",
+        "adspower.com",
+        "adspower.net",
+        "statsig.com",
+        "statsigapi.net",
+        "intercom.io",
+        "intercomcdn.com"
+      ],
+      "domain_keyword": [
+        "datadog",
+        "sift"
+      ],
+      "ip_cidr": [
+        "160.79.104.0/21",
+        "2607:6bc0::/32"
       ]
     }
   ]

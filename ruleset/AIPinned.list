@@ -1,4 +1,9 @@
-# Claude and Anthropic
+# Source: https://github.com/QuincySx/dotfiles/blob/0cd616169174523ac78024a68d2d0273f009538f/rules/Ac-claude-proxy.list
+DOMAIN,cdn.usefathom.com
+DOMAIN,http-intake.logs.us5.datadoghq.com
+DOMAIN,browser-intake-us5-datadoghq.com
+DOMAIN,anthropic.auth0.com
+DOMAIN,anthropic-com.ghost.io
 DOMAIN-SUFFIX,ant.dev
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,anthropic.team
@@ -16,3 +21,25 @@ DOMAIN-SUFFIX,claudemcpclient.com
 DOMAIN-SUFFIX,claudemcpcontent.com
 DOMAIN-SUFFIX,claudepages.dev
 DOMAIN-SUFFIX,claudestudio.com
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,stripe.com
+
+DOMAIN-SUFFIX,withpersona.com
+DOMAIN-SUFFIX,frompersona.com
+DOMAIN-KEYWORD,datadog
+DOMAIN-KEYWORD,sift
+
+IP-CIDR,160.79.104.0/21,no-resolve
+IP-CIDR6,2607:6bc0::/32,no-resolve
+
+DOMAIN-SUFFIX,hs-analytics.net
+DOMAIN-SUFFIX,hs-scripts.com
+DOMAIN-SUFFIX,hubspot.com
+
+DOMAIN-SUFFIX,adspower.com
+DOMAIN-SUFFIX,adspower.net
+
+DOMAIN-SUFFIX,statsig.com
+DOMAIN-SUFFIX,statsigapi.net
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
